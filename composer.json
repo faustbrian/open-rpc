@@ -1,0 +1,31 @@
+{
+    "name": "cline/open-rpc",
+    "autoload": {
+        "psr-4": {
+            "Cline\\OpenRpc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "brian@cline.sh"
+        }
+    ],
+    "require-dev": {
+        "cline/php-cs-fixer": "^1.0",
+        "pestphp/pest": "^4"
+    },
+    "require": {
+        "spatie/laravel-data": "^4.17"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
