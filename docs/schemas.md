@@ -1,8 +1,3 @@
----
-title: Schemas
-description: Reusable JSON Schema definitions for OpenRPC specifications
----
-
 Schemas provide reusable JSON Schema definitions that can be referenced throughout your OpenRPC specification using `$ref` pointers. This package includes pre-built schemas for common patterns.
 
 ## CursorPaginatorSchema

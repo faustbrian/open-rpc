@@ -1,8 +1,3 @@
----
-title: Getting Started
-description: Build OpenRPC specification documents for JSON-RPC 2.0 APIs in Laravel
----
-
 ## Installation
 
 Install via Composer:

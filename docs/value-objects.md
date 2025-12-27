@@ -1,8 +1,3 @@
----
-title: Value Objects
-description: Complete API reference for OpenRPC specification value objects
----
-
 All OpenRPC specification components are represented as immutable value objects extending `Spatie\LaravelData\Data`. This ensures type safety, automatic serialization, and integration with Laravel's ecosystem.
 
 ## DocumentValue

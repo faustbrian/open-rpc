@@ -1,8 +1,3 @@
----
-title: Content Descriptors
-description: Pre-built OpenRPC content descriptors for pagination, filtering, sorting, and relationships
----
-
 Content descriptors define the structure and metadata for method parameters and results. This package provides pre-built descriptors for common API patterns that follow JSON:API conventions.
 
 ## Overview
