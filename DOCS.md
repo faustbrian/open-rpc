@@ -1,9 +1,9 @@
 ## Table of Contents
 
-1. [Overview](#doc-docs-readme) (`docs/README.md`)
-2. [Content Descriptors](#doc-docs-content-descriptors) (`docs/content-descriptors.md`)
-3. [Schemas](#doc-docs-schemas) (`docs/schemas.md`)
-4. [Value Objects](#doc-docs-value-objects) (`docs/value-objects.md`)
+1. [Overview](#doc-docs-readme)
+2. [Content Descriptors](#doc-docs-content-descriptors)
+3. [Schemas](#doc-docs-schemas)
+4. [Value Objects](#doc-docs-value-objects)
 <a id="doc-docs-readme"></a>
 
 ## Installation
