@@ -1,9 +1,11 @@
 ## Table of Contents
 
-1. Overview (`docs/README.md`)
-2. Content Descriptors (`docs/content-descriptors.md`)
-3. Schemas (`docs/schemas.md`)
-4. Value Objects (`docs/value-objects.md`)
+1. [Overview](#doc-docs-readme) (`docs/README.md`)
+2. [Content Descriptors](#doc-docs-content-descriptors) (`docs/content-descriptors.md`)
+3. [Schemas](#doc-docs-schemas) (`docs/schemas.md`)
+4. [Value Objects](#doc-docs-value-objects) (`docs/value-objects.md`)
+<a id="doc-docs-readme"></a>
+
 ## Installation
 
 Install via Composer:
@@ -162,6 +164,8 @@ All OpenRPC specification components are represented as immutable value objects:
 - **[Value Objects](value-objects)** - Complete API reference for all value objects
 - **[Content Descriptors](content-descriptors)** - Pre-built descriptors for pagination, filtering, and sorting
 - **[Schemas](schemas)** - Reusable JSON Schema definitions
+
+<a id="doc-docs-content-descriptors"></a>
 
 Content descriptors define the structure and metadata for method parameters and results. This package provides pre-built descriptors for common API patterns that follow JSON:API conventions.
 
@@ -566,6 +570,8 @@ $method = new MethodValue(
 );
 ```
 
+<a id="doc-docs-schemas"></a>
+
 Schemas provide reusable JSON Schema definitions that can be referenced throughout your OpenRPC specification using `$ref` pointers. This package includes pre-built schemas for common patterns.
 
 ## CursorPaginatorSchema
@@ -962,6 +968,8 @@ The schema `data` array supports all JSON Schema Draft 7 features:
 // allOf (inheritance)
 ['allOf' => [['$ref' => '#/components/schemas/Base'], ['properties' => [...]]]]
 ```
+
+<a id="doc-docs-value-objects"></a>
 
 All OpenRPC specification components are represented as immutable value objects extending `Spatie\LaravelData\Data`. This ensures type safety, automatic serialization, and integration with Laravel's ecosystem.
 
