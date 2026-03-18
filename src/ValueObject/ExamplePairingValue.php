@@ -9,10 +9,10 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\DataCollectionOf;
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
+use Cline\Struct\Attributes\AsDataCollection;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
+use Cline\Struct\Support\DataCollection;
 
 /**
  * OpenRPC Example Pairing Object value object.
@@ -30,7 +30,7 @@ use Spatie\LaravelData\DataCollection;
  * @author Brian Faust <brian@cline.sh>
  * @see https://spec.open-rpc.org/#example-pairing-object
  */
-final class ExamplePairingValue extends Data
+final readonly class ExamplePairingValue extends Data
 {
     /**
      * Create a new Example Pairing Object instance.
@@ -57,14 +57,14 @@ final class ExamplePairingValue extends Data
      *                                                            what to expect from the method with these specific inputs.
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         public readonly string $name,
         public readonly ?string $description,
         public readonly ?string $summary,
-        #[Required()]
-        #[DataCollectionOf(ExampleValue::class)]
+        #[Validate('required')]
+        #[AsDataCollection(ExampleValue::class)]
         public readonly DataCollection $params,
-        #[DataCollectionOf(ExampleValue::class)]
+        #[AsDataCollection(ExampleValue::class)]
         public readonly ?DataCollection $result,
     ) {}
 }

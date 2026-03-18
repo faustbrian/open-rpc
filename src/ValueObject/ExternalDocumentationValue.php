@@ -9,8 +9,8 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * OpenRPC External Documentation Object value object.
@@ -26,7 +26,7 @@ use Spatie\LaravelData\Data;
  * @author Brian Faust <brian@cline.sh>
  * @see https://spec.open-rpc.org/#external-documentation-object
  */
-final class ExternalDocumentationValue extends Data
+final readonly class ExternalDocumentationValue extends Data
 {
     /**
      * Create a new External Documentation Object instance.
@@ -42,7 +42,7 @@ final class ExternalDocumentationValue extends Data
      */
     public function __construct(
         public readonly ?string $description,
-        #[Required()]
+        #[Validate('required')]
         public readonly string $url,
     ) {}
 }

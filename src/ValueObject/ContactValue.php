@@ -9,7 +9,7 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Data;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * OpenRPC Contact Object value object.
@@ -39,7 +39,7 @@ use Spatie\LaravelData\Data;
  *
  * @see https://spec.open-rpc.org/#contact-object
  */
-final class ContactValue extends Data
+final readonly class ContactValue extends Data
 {
     /**
      * Create a new Contact Object instance.

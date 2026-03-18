@@ -9,7 +9,7 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Data;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * OpenRPC License Object value object.
@@ -25,7 +25,7 @@ use Spatie\LaravelData\Data;
  * @author Brian Faust <brian@cline.sh>
  * @see https://spec.open-rpc.org/#license-object
  */
-final class LicenseValue extends Data
+final readonly class LicenseValue extends Data
 {
     /**
      * Create a new License Object instance.

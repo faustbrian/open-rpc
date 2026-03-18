@@ -11,7 +11,7 @@ use Cline\OpenRpc\ValueObject\ExamplePairingValue;
 use Cline\OpenRpc\ValueObject\ExampleValue;
 use Cline\OpenRpc\ValueObject\LinkValue;
 use Cline\OpenRpc\ValueObject\TagValue;
-use Spatie\LaravelData\DataCollection;
+use Cline\Struct\Support\DataCollection;
 
 it('creates link and tag values', function (): void {
     $link = new LinkValue(name: 'docs', url: 'https://example.com/docs');
@@ -25,8 +25,8 @@ it('creates example values and pairings', function (): void {
     $paramExample = new ExampleValue(name: 'payload', summary: 'Basic payload', description: null, value: '{"name":"john"}', externalValue: null);
     $resultExample = new ExampleValue(name: 'result', summary: 'Success', description: null, value: '{"ok":true}', externalValue: null);
 
-    $params = new DataCollection(ExampleValue::class, [$paramExample]);
-    $results = new DataCollection(ExampleValue::class, [$resultExample]);
+    $params = new DataCollection([$paramExample]);
+    $results = new DataCollection([$resultExample]);
 
     $pair = new ExamplePairingValue(
         name: 'createUser',
@@ -37,6 +37,6 @@ it('creates example values and pairings', function (): void {
     );
 
     expect($pair->name)->toBe('createUser')
-        ->and($pair->params->items()[0]->name)->toBe('payload')
-        ->and($pair->result?->items()[0]->name)->toBe('result');
+        ->and($pair->params->all()[0]->name)->toBe('payload')
+        ->and($pair->result?->all()[0]->name)->toBe('result');
 });

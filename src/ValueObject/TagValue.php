@@ -9,8 +9,8 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * Represents a tag for categorizing and organizing OpenRPC methods.
@@ -26,7 +26,7 @@ use Spatie\LaravelData\Data;
  *
  * @see https://spec.open-rpc.org/#tag-object
  */
-final class TagValue extends Data
+final readonly class TagValue extends Data
 {
     /**
      * Create a new tag definition object.
@@ -48,7 +48,7 @@ final class TagValue extends Data
      *                                                      Useful for linking to detailed guides or tutorials.
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         public readonly string $name,
         public readonly ?string $summary,
         public readonly ?string $description,

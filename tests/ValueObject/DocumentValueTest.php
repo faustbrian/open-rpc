@@ -10,7 +10,7 @@
 use Cline\OpenRpc\ValueObject\DocumentValue;
 use Cline\OpenRpc\ValueObject\InfoValue;
 use Cline\OpenRpc\ValueObject\MethodValue;
-use Spatie\LaravelData\DataCollection;
+use Cline\Struct\Support\DataCollection;
 
 it('instantiates a minimal document value object', function (): void {
     $info = new InfoValue(
@@ -22,7 +22,7 @@ it('instantiates a minimal document value object', function (): void {
         version: '1.0.0',
     );
 
-    $methods = new DataCollection(MethodValue::class, []);
+    $methods = new DataCollection([]);
 
     $document = new DocumentValue(
         openrpc: '1.2.6',

@@ -9,8 +9,8 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * OpenRPC Error Object value object.
@@ -29,7 +29,7 @@ use Spatie\LaravelData\Data;
  * @see https://spec.open-rpc.org/#error-object
  * @see https://www.jsonrpc.org/specification#error_object
  */
-final class ErrorValue extends Data
+final readonly class ErrorValue extends Data
 {
     /**
      * Create a new Error Object instance.
@@ -48,9 +48,9 @@ final class ErrorValue extends Data
      *                        error resolution. Type and structure are application-defined.
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         public readonly int $code,
-        #[Required()]
+        #[Validate('required')]
         public readonly string $message,
         public readonly mixed $data,
     ) {}

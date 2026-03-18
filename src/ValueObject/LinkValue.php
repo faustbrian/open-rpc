@@ -9,7 +9,7 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Data;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * OpenRPC Link Object value object.
@@ -26,7 +26,7 @@ use Spatie\LaravelData\Data;
  * @author Brian Faust <brian@cline.sh>
  * @see https://spec.open-rpc.org/#link-object
  */
-final class LinkValue extends Data
+final readonly class LinkValue extends Data
 {
     /**
      * Create a new Link Object instance.

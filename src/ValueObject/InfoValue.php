@@ -9,8 +9,8 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * OpenRPC Info Object value object.
@@ -26,7 +26,7 @@ use Spatie\LaravelData\Data;
  * @author Brian Faust <brian@cline.sh>
  * @see https://spec.open-rpc.org/#info-object
  */
-final class InfoValue extends Data
+final readonly class InfoValue extends Data
 {
     /**
      * Create a new Info Object instance.
@@ -57,13 +57,13 @@ final class InfoValue extends Data
      *                                          changes across different releases.
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         public readonly string $title,
         public readonly ?string $description,
         public readonly ?string $termsOfService,
         public readonly ?ContactValue $contact,
         public readonly ?LicenseValue $license,
-        #[Required()]
+        #[Validate('required')]
         public readonly string $version,
     ) {}
 }

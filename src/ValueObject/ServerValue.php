@@ -9,10 +9,10 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\DataCollectionOf;
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
+use Cline\Struct\Attributes\AsDataCollection;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
+use Cline\Struct\Support\DataCollection;
 
 /**
  * Represents a server definition within the OpenRPC specification.
@@ -29,7 +29,7 @@ use Spatie\LaravelData\DataCollection;
  *
  * @see https://spec.open-rpc.org/#server-object
  */
-final class ServerValue extends Data
+final readonly class ServerValue extends Data
 {
     /**
      * Create a new server definition object.
@@ -54,13 +54,13 @@ final class ServerValue extends Data
      *                                                                   allowing URL substitution at runtime.
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         public readonly string $name,
-        #[Required()]
+        #[Validate('required')]
         public readonly string $url,
         public readonly ?string $summary,
         public readonly ?string $description,
-        #[DataCollectionOf(ServerVariableValue::class)]
+        #[AsDataCollection(ServerVariableValue::class)]
         public readonly ?DataCollection $variables,
     ) {}
 }

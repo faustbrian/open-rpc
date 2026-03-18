@@ -9,9 +9,10 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
+use Cline\Struct\Serialization\SerializationOptions;
 use Override;
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
 
 /**
  * Represents a JSON Schema definition within the OpenRPC specification.
@@ -27,7 +28,7 @@ use Spatie\LaravelData\Data;
  *
  * @see https://spec.open-rpc.org/#schema-object
  */
-final class SchemaValue extends Data
+final readonly class SchemaValue extends Data
 {
     /**
      * Create a new schema definition object.
@@ -42,9 +43,9 @@ final class SchemaValue extends Data
      *                                   structure and validation requirements for this schema
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         public readonly string $name,
-        #[Required()]
+        #[Validate('required')]
         public readonly array $data,
     ) {}
 
@@ -58,7 +59,14 @@ final class SchemaValue extends Data
      * @return array<string, mixed> Array representation with schema name as key
      */
     #[Override()]
-    public function toArray(): array
+    public function toArray(
+        bool $includeSensitive = false,
+        array $include = [],
+        array $exclude = [],
+        array $groups = [],
+        array $context = [],
+        ?SerializationOptions $serialization = null,
+    ): array
     {
         return [
             $this->name => $this->data,

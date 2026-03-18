@@ -9,7 +9,7 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Data;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * OpenRPC Components Object value object.
@@ -49,7 +49,7 @@ use Spatie\LaravelData\Data;
  *
  * @see https://spec.open-rpc.org/#components-object
  */
-final class ComponentsValue extends Data
+final readonly class ComponentsValue extends Data
 {
     /**
      * Create a new Components Object instance.

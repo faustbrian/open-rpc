@@ -9,8 +9,8 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * Represents a server variable definition within the OpenRPC specification.
@@ -26,7 +26,7 @@ use Spatie\LaravelData\Data;
  *
  * @see https://spec.open-rpc.org/#server-variable-object
  */
-final class ServerVariableValue extends Data
+final readonly class ServerVariableValue extends Data
 {
     /**
      * Create a new server variable definition object.
@@ -47,7 +47,7 @@ final class ServerVariableValue extends Data
      */
     public function __construct(
         public readonly array $enum,
-        #[Required()]
+        #[Validate('required')]
         public readonly string $default,
         public readonly string $description,
     ) {}

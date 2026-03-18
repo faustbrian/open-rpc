@@ -9,9 +9,9 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\MapOutputName;
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
+use Cline\Struct\Attributes\MapOutputName;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * OpenRPC Reference Object value object.
@@ -28,7 +28,7 @@ use Spatie\LaravelData\Data;
  * @see https://spec.open-rpc.org/#reference-object
  * @see https://datatracker.ietf.org/doc/html/rfc6901
  */
-final class ReferenceValue extends Data
+final readonly class ReferenceValue extends Data
 {
     /**
      * Create a new Reference Object instance.
@@ -39,7 +39,7 @@ final class ReferenceValue extends Data
      *                    parameters, or other definitions (e.g., "#/components/schemas/User").
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         #[MapOutputName('$ref')]
         public readonly string $ref,
     ) {}

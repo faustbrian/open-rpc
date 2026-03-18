@@ -9,10 +9,10 @@
 
 use Cline\OpenRpc\ValueObject\ServerValue;
 use Cline\OpenRpc\ValueObject\ServerVariableValue;
-use Spatie\LaravelData\DataCollection;
+use Cline\Struct\Support\DataCollection;
 
 it('creates a server value with variables', function (): void {
-    $variables = new DataCollection(ServerVariableValue::class, [
+    $variables = new DataCollection([
         new ServerVariableValue(enum: ['v1', 'v2'], default: 'v1', description: 'API version'),
     ]);
 
@@ -27,6 +27,6 @@ it('creates a server value with variables', function (): void {
     expect($server->name)->toBe('production')
         ->and($server->url)->toContain('{version}')
         ->and($server->variables)->toBeInstanceOf(DataCollection::class)
-        ->and($server->variables->items()[0])->toBeInstanceOf(ServerVariableValue::class)
-        ->and($server->variables->items()[0]->default)->toBe('v1');
+        ->and($server->variables->all()[0])->toBeInstanceOf(ServerVariableValue::class)
+        ->and($server->variables->all()[0]->default)->toBe('v1');
 });

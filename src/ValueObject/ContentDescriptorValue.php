@@ -9,9 +9,9 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
-use Spatie\LaravelData\Optional;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
+use Cline\Struct\Support\Optional;
 
 /**
  * OpenRPC Content Descriptor Object value object.
@@ -44,7 +44,7 @@ use Spatie\LaravelData\Optional;
  *
  * @see https://spec.open-rpc.org/#content-descriptor-object
  */
-final class ContentDescriptorValue extends Data
+final readonly class ContentDescriptorValue extends Data
 {
     /**
      * Create a new Content Descriptor Object instance.
@@ -57,7 +57,7 @@ final class ContentDescriptorValue extends Data
      * @param bool|Optional             $deprecated  Indicates whether this content descriptor is deprecated and should not be used in new implementations. When true, API documentation will mark this as deprecated and may include migration guidance. Helps maintain backward compatibility while guiding developers to newer alternatives.
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         public readonly string $name,
         public readonly ?string $summary,
         public readonly ?string $description,

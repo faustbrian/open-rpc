@@ -16,7 +16,7 @@ use Cline\OpenRpc\ValueObject\LinkValue;
 use Cline\OpenRpc\ValueObject\MethodValue;
 use Cline\OpenRpc\ValueObject\ServerValue;
 use Cline\OpenRpc\ValueObject\TagValue;
-use Spatie\LaravelData\DataCollection;
+use Cline\Struct\Support\DataCollection;
 
 it('creates a content descriptor value', function (): void {
     $schema = [
@@ -41,11 +41,11 @@ it('creates a content descriptor value', function (): void {
 });
 
 it('creates a complete method value with collections', function (): void {
-    $tags = new DataCollection(TagValue::class, [
+    $tags = new DataCollection([
         new TagValue(name: 'users', summary: 'User ops', description: null, externalDocs: null),
     ]);
 
-    $params = new DataCollection(ContentDescriptorValue::class, [
+    $params = new DataCollection([
         new ContentDescriptorValue(
             name: 'data',
             summary: 'payload',
@@ -65,25 +65,25 @@ it('creates a complete method value with collections', function (): void {
         deprecated: false,
     );
 
-    $servers = new DataCollection(ServerValue::class, [
+    $servers = new DataCollection([
         new ServerValue(name: 'prod', url: 'https://api.example.com', summary: null, description: null, variables: null),
     ]);
 
-    $errors = new DataCollection(ErrorValue::class, [
+    $errors = new DataCollection([
         new ErrorValue(code: 400, message: 'Bad Request', data: ['field' => 'name']),
     ]);
 
-    $links = new DataCollection(LinkValue::class, [
+    $links = new DataCollection([
         new LinkValue(name: 'docs', url: 'https://example.com/docs/users.create'),
     ]);
 
-    $examples = new DataCollection(ExamplePairingValue::class, [
+    $examples = new DataCollection([
         new ExamplePairingValue(
             name: 'ok',
             description: null,
             summary: 'OK response',
-            params: new DataCollection(ExampleValue::class, [new ExampleValue(name: 'payload', summary: null, description: null, value: '{"name":"john"}', externalValue: null)]),
-            result: new DataCollection(ExampleValue::class, [new ExampleValue(name: 'result', summary: null, description: null, value: '{"ok":true}', externalValue: null)]),
+            params: new DataCollection([new ExampleValue(name: 'payload', summary: null, description: null, value: '{"name":"john"}', externalValue: null)]),
+            result: new DataCollection([new ExampleValue(name: 'result', summary: null, description: null, value: '{"ok":true}', externalValue: null)]),
         ),
     ]);
 
@@ -107,9 +107,9 @@ it('creates a complete method value with collections', function (): void {
         ->and($method->summary)->toContain('Create')
         ->and($method->params)->toBeInstanceOf(DataCollection::class)
         ->and($method->result?->name)->toBe('result')
-        ->and($method->servers?->items()[0]->url)->toContain('https://api.example.com')
-        ->and($method->errors?->items()[0]->code)->toBe(400)
-        ->and($method->links?->items()[0]->name)->toBe('docs')
+        ->and($method->servers?->all()[0]->url)->toContain('https://api.example.com')
+        ->and($method->errors?->all()[0]->code)->toBe(400)
+        ->and($method->links?->all()[0]->name)->toBe('docs')
         ->and($method->paramStructure)->toBe('by-name')
-        ->and($method->examples?->items()[0]->name)->toBe('ok');
+        ->and($method->examples?->all()[0]->name)->toBe('ok');
 });

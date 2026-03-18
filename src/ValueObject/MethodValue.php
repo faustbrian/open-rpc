@@ -9,11 +9,11 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\DataCollectionOf;
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
-use Spatie\LaravelData\Optional;
+use Cline\Struct\Attributes\AsDataCollection;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
+use Cline\Struct\Support\DataCollection;
+use Cline\Struct\Support\Optional;
 
 /**
  * OpenRPC Method Object value object.
@@ -30,7 +30,7 @@ use Spatie\LaravelData\Optional;
  * @author Brian Faust <brian@cline.sh>
  * @see https://spec.open-rpc.org/#method-object
  */
-final class MethodValue extends Data
+final readonly class MethodValue extends Data
 {
     /**
      * Create a new Method Object instance.
@@ -89,26 +89,26 @@ final class MethodValue extends Data
      *                                                                         understand the method's practical application.
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         public readonly string $name,
-        #[DataCollectionOf(TagValue::class)]
+        #[AsDataCollection(TagValue::class)]
         public readonly ?DataCollection $tags,
         public readonly ?string $summary,
         public readonly ?string $description,
         public readonly ?ExternalDocumentationValue $externalDocs,
-        #[Required()]
-        #[DataCollectionOf(ContentDescriptorValue::class)]
+        #[Validate('required')]
+        #[AsDataCollection(ContentDescriptorValue::class)]
         public readonly ?DataCollection $params,
         public readonly ?ContentDescriptorValue $result,
         public readonly bool|Optional $deprecated,
-        #[DataCollectionOf(ServerValue::class)]
+        #[AsDataCollection(ServerValue::class)]
         public readonly ?DataCollection $servers,
-        #[DataCollectionOf(ErrorValue::class)]
+        #[AsDataCollection(ErrorValue::class)]
         public readonly ?DataCollection $errors,
-        #[DataCollectionOf(LinkValue::class)]
+        #[AsDataCollection(LinkValue::class)]
         public readonly ?DataCollection $links,
         public readonly ?string $paramStructure,
-        #[DataCollectionOf(ExamplePairingValue::class)]
+        #[AsDataCollection(ExamplePairingValue::class)]
         public readonly ?DataCollection $examples,
     ) {}
 }

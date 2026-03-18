@@ -15,7 +15,7 @@ use Cline\OpenRpc\ValueObject\ExampleValue;
 use Cline\OpenRpc\ValueObject\LinkValue;
 use Cline\OpenRpc\ValueObject\SchemaValue;
 use Cline\OpenRpc\ValueObject\TagValue;
-use Spatie\LaravelData\DataCollection;
+use Cline\Struct\Support\DataCollection;
 
 it('creates a components value with reusable elements', function (): void {
     $components = new ComponentsValue(
@@ -46,7 +46,7 @@ it('creates a components value with reusable elements', function (): void {
                 name: 'pair',
                 description: null,
                 summary: null,
-                params: new DataCollection(ExampleValue::class, [new ExampleValue(name: null, summary: null, description: null, value: '{}', externalValue: null)]),
+                params: new DataCollection([new ExampleValue(name: null, summary: null, description: null, value: '{}', externalValue: null)]),
                 result: null,
             ),
         ],

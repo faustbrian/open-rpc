@@ -9,7 +9,7 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Data;
+use Cline\Struct\AbstractData as Data;
 
 /**
  * OpenRPC Example Object value object.
@@ -26,7 +26,7 @@ use Spatie\LaravelData\Data;
  * @author Brian Faust <brian@cline.sh>
  * @see https://spec.open-rpc.org/#example-object
  */
-final class ExampleValue extends Data
+final readonly class ExampleValue extends Data
 {
     /**
      * Create a new Example Object instance.

@@ -9,10 +9,10 @@
 
 namespace Cline\OpenRpc\ValueObject;
 
-use Spatie\LaravelData\Attributes\DataCollectionOf;
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
+use Cline\Struct\Attributes\AsDataCollection;
+use Cline\Struct\Attributes\Validate;
+use Cline\Struct\AbstractData as Data;
+use Cline\Struct\Support\DataCollection;
 
 /**
  * OpenRPC Document Object value object.
@@ -30,7 +30,7 @@ use Spatie\LaravelData\DataCollection;
  * @author Brian Faust <brian@cline.sh>
  * @see https://spec.open-rpc.org/#openrpc-object
  */
-final class DocumentValue extends Data
+final readonly class DocumentValue extends Data
 {
     /**
      * Create a new OpenRPC Document Object instance.
@@ -61,14 +61,14 @@ final class DocumentValue extends Data
      *                                                            core specification with comprehensive usage information
      */
     public function __construct(
-        #[Required()]
+        #[Validate('required')]
         public readonly string $openrpc,
-        #[Required()]
+        #[Validate('required')]
         public readonly InfoValue $info,
-        #[DataCollectionOf(ServerValue::class)]
+        #[AsDataCollection(ServerValue::class)]
         public readonly ?DataCollection $servers,
-        #[Required()]
-        #[DataCollectionOf(MethodValue::class)]
+        #[Validate('required')]
+        #[AsDataCollection(MethodValue::class)]
         public readonly DataCollection $methods,
         public readonly ?ComponentsValue $components,
         public readonly ?ExternalDocumentationValue $externalDocs,
