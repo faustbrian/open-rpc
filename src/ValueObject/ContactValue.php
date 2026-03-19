@@ -49,8 +49,8 @@ final readonly class ContactValue extends Data
      * @param null|string $email Email address for contacting the API maintainers or support team. This should be a monitored email address where API users can send questions, bug reports, or feedback about the API specification or implementation. Should follow standard email format.
      */
     public function __construct(
-        public readonly ?string $name,
-        public readonly ?string $url,
-        public readonly ?string $email,
+        public ?string $name,
+        public ?string $url,
+        public ?string $email,
     ) {}
 }

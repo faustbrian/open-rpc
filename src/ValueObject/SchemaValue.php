@@ -44,9 +44,9 @@ final readonly class SchemaValue extends Data
      */
     public function __construct(
         #[Validate('required')]
-        public readonly string $name,
+        public string $name,
         #[Validate('required')]
-        public readonly array $data,
+        public array $data,
     ) {}
 
     /**

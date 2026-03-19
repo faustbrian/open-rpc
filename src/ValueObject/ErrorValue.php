@@ -49,9 +49,9 @@ final readonly class ErrorValue extends Data
      */
     public function __construct(
         #[Validate('required')]
-        public readonly int $code,
+        public int $code,
         #[Validate('required')]
-        public readonly string $message,
-        public readonly mixed $data,
+        public string $message,
+        public mixed $data,
     ) {}
 }

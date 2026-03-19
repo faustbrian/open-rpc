@@ -49,9 +49,9 @@ final readonly class TagValue extends Data
      */
     public function __construct(
         #[Validate('required')]
-        public readonly string $name,
-        public readonly ?string $summary,
-        public readonly ?string $description,
-        public readonly ?ExternalDocumentationValue $externalDocs,
+        public string $name,
+        public ?string $summary,
+        public ?string $description,
+        public ?ExternalDocumentationValue $externalDocs,
     ) {}
 }

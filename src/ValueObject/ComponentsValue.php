@@ -63,12 +63,12 @@ final readonly class ComponentsValue extends Data
      * @param null|array<string, TagValue>               $tags                  Collection of reusable Tag Objects that provide metadata for organizing and categorizing API methods, indexed by unique identifiers for consistent grouping and documentation structure. Tags enable logical grouping of related endpoints in generated documentation.
      */
     public function __construct(
-        public readonly ?array $contentDescriptors,
-        public readonly ?array $schemas,
-        public readonly ?array $examples,
-        public readonly ?array $links,
-        public readonly ?array $errors,
-        public readonly ?array $examplePairingObjects,
-        public readonly ?array $tags,
+        public ?array $contentDescriptors,
+        public ?array $schemas,
+        public ?array $examples,
+        public ?array $links,
+        public ?array $errors,
+        public ?array $examplePairingObjects,
+        public ?array $tags,
     ) {}
 }

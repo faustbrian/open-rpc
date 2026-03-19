@@ -55,12 +55,12 @@ final readonly class ServerValue extends Data
      */
     public function __construct(
         #[Validate('required')]
-        public readonly string $name,
+        public string $name,
         #[Validate('required')]
-        public readonly string $url,
-        public readonly ?string $summary,
-        public readonly ?string $description,
+        public string $url,
+        public ?string $summary,
+        public ?string $description,
         #[AsDataCollection(ServerVariableValue::class)]
-        public readonly ?DataCollection $variables,
+        public ?DataCollection $variables,
     ) {}
 }

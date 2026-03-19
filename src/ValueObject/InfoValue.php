@@ -58,12 +58,12 @@ final readonly class InfoValue extends Data
      */
     public function __construct(
         #[Validate('required')]
-        public readonly string $title,
-        public readonly ?string $description,
-        public readonly ?string $termsOfService,
-        public readonly ?ContactValue $contact,
-        public readonly ?LicenseValue $license,
+        public string $title,
+        public ?string $description,
+        public ?string $termsOfService,
+        public ?ContactValue $contact,
+        public ?LicenseValue $license,
         #[Validate('required')]
-        public readonly string $version,
+        public string $version,
     ) {}
 }

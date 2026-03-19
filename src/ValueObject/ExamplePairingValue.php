@@ -58,13 +58,13 @@ final readonly class ExamplePairingValue extends Data
      */
     public function __construct(
         #[Validate('required')]
-        public readonly string $name,
-        public readonly ?string $description,
-        public readonly ?string $summary,
+        public string $name,
+        public ?string $description,
+        public ?string $summary,
         #[Validate('required')]
         #[AsDataCollection(ExampleValue::class)]
-        public readonly DataCollection $params,
+        public DataCollection $params,
         #[AsDataCollection(ExampleValue::class)]
-        public readonly ?DataCollection $result,
+        public ?DataCollection $result,
     ) {}
 }

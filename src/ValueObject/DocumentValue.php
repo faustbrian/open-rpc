@@ -62,15 +62,15 @@ final readonly class DocumentValue extends Data
      */
     public function __construct(
         #[Validate('required')]
-        public readonly string $openrpc,
+        public string $openrpc,
         #[Validate('required')]
-        public readonly InfoValue $info,
+        public InfoValue $info,
         #[AsDataCollection(ServerValue::class)]
-        public readonly ?DataCollection $servers,
+        public ?DataCollection $servers,
         #[Validate('required')]
         #[AsDataCollection(MethodValue::class)]
-        public readonly DataCollection $methods,
-        public readonly ?ComponentsValue $components,
-        public readonly ?ExternalDocumentationValue $externalDocs,
+        public DataCollection $methods,
+        public ?ComponentsValue $components,
+        public ?ExternalDocumentationValue $externalDocs,
     ) {}
 }

@@ -40,7 +40,7 @@ final readonly class LicenseValue extends Data
      *                          governing the use of the API and its documentation.
      */
     public function __construct(
-        public readonly ?string $name,
-        public readonly ?string $url,
+        public ?string $name,
+        public ?string $url,
     ) {}
 }

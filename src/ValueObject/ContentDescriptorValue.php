@@ -58,12 +58,12 @@ final readonly class ContentDescriptorValue extends Data
      */
     public function __construct(
         #[Validate('required')]
-        public readonly string $name,
-        public readonly ?string $summary,
-        public readonly ?string $description,
-        public readonly bool|Optional $required,
+        public string $name,
+        public ?string $summary,
+        public ?string $description,
+        public bool|Optional $required,
         // public readonly ?SchemaValue $schema,
-        public readonly ?array $schema,
-        public readonly bool|Optional $deprecated,
+        public ?array $schema,
+        public bool|Optional $deprecated,
     ) {}
 }

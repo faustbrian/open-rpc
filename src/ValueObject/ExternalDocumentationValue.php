@@ -41,8 +41,8 @@ final readonly class ExternalDocumentationValue extends Data
      *                                 that supplements the core API specification.
      */
     public function __construct(
-        public readonly ?string $description,
+        public ?string $description,
         #[Validate('required')]
-        public readonly string $url,
+        public string $url,
     ) {}
 }

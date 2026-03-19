@@ -41,7 +41,7 @@ final readonly class LinkValue extends Data
      *                          or contextual resources enhancing API understanding.
      */
     public function __construct(
-        public readonly ?string $name,
-        public readonly ?string $url,
+        public ?string $name,
+        public ?string $url,
     ) {}
 }

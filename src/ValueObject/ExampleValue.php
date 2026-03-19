@@ -53,10 +53,10 @@ final readonly class ExampleValue extends Data
      *                                   improve maintainability and reduce document size.
      */
     public function __construct(
-        public readonly ?string $name,
-        public readonly ?string $summary,
-        public readonly ?string $description,
-        public readonly ?string $value,
-        public readonly ?string $externalValue,
+        public ?string $name,
+        public ?string $summary,
+        public ?string $description,
+        public ?string $value,
+        public ?string $externalValue,
     ) {}
 }

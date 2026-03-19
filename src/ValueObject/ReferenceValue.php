@@ -41,6 +41,6 @@ final readonly class ReferenceValue extends Data
     public function __construct(
         #[Validate('required')]
         #[MapOutputName('$ref')]
-        public readonly string $ref,
+        public string $ref,
     ) {}
 }

@@ -46,9 +46,9 @@ final readonly class ServerVariableValue extends Data
      *                                        and how different values affect server behavior.
      */
     public function __construct(
-        public readonly array $enum,
+        public array $enum,
         #[Validate('required')]
-        public readonly string $default,
-        public readonly string $description,
+        public string $default,
+        public string $description,
     ) {}
 }

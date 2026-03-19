@@ -9,7 +9,6 @@
 
 use Cline\OpenRpc\ValueObject\DocumentValue;
 use Cline\OpenRpc\ValueObject\InfoValue;
-use Cline\OpenRpc\ValueObject\MethodValue;
 use Cline\Struct\Support\DataCollection;
 
 it('instantiates a minimal document value object', function (): void {

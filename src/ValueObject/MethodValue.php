@@ -90,25 +90,25 @@ final readonly class MethodValue extends Data
      */
     public function __construct(
         #[Validate('required')]
-        public readonly string $name,
+        public string $name,
         #[AsDataCollection(TagValue::class)]
-        public readonly ?DataCollection $tags,
-        public readonly ?string $summary,
-        public readonly ?string $description,
-        public readonly ?ExternalDocumentationValue $externalDocs,
+        public ?DataCollection $tags,
+        public ?string $summary,
+        public ?string $description,
+        public ?ExternalDocumentationValue $externalDocs,
         #[Validate('required')]
         #[AsDataCollection(ContentDescriptorValue::class)]
-        public readonly ?DataCollection $params,
-        public readonly ?ContentDescriptorValue $result,
-        public readonly bool|Optional $deprecated,
+        public ?DataCollection $params,
+        public ?ContentDescriptorValue $result,
+        public bool|Optional $deprecated,
         #[AsDataCollection(ServerValue::class)]
-        public readonly ?DataCollection $servers,
+        public ?DataCollection $servers,
         #[AsDataCollection(ErrorValue::class)]
-        public readonly ?DataCollection $errors,
+        public ?DataCollection $errors,
         #[AsDataCollection(LinkValue::class)]
-        public readonly ?DataCollection $links,
-        public readonly ?string $paramStructure,
+        public ?DataCollection $links,
+        public ?string $paramStructure,
         #[AsDataCollection(ExamplePairingValue::class)]
-        public readonly ?DataCollection $examples,
+        public ?DataCollection $examples,
     ) {}
 }
